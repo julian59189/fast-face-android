@@ -25,9 +25,13 @@ buildscript {
     repositories {
         mavenCentral()
     }
-    dependencies {
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
-    }
+//    dependencies {
+//        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+//    }
+//    dependencies {
+//        compile 'com.google.dagger:dagger:2.0'
+//        annotationProcessor 'com.google.dagger:dagger-compiler:2.0'
+//    }
 }
 
 repositories {
@@ -35,7 +39,7 @@ repositories {
     mavenLocal()
 }
 
-apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'com.neenbedankt.android-apt'
 def AAVersion = '4.0.0'
 
 dependencies {
@@ -44,8 +48,13 @@ dependencies {
     compile 'com.android.support:design:25.2.0'
     compile 'com.github.dexafree:materiallist:3.0.1'
     compile 'com.jakewharton.timber:timber:4.5.1'
-    compile project(':dlib')
-    apt "org.androidannotations:androidannotations:$AAVersion"
+//    compile project(':dlib')
+    implementation project(':dlib')
+
+//    apt "org.androidannotations:androidannotations:$AAVersion"
+//    compile "org.androidannotations:androidannotations-api:$AAVersion"
+
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
 
     // Add AndroidJUnit
